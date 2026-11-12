@@ -1,0 +1,108 @@
+# Template for the recommended upgrade: photograph any whole fish you can buy, on a ruler, with a
+# handwritten one-time code card in the frame. Copy this file to programs/own-photos.yaml, set the
+# species you photographed, and add scenarios in samples/scenarios.yaml with `code:` set to the code
+# on each card. The code check then runs for real.
+# Files ending in .template.yaml are ignored by the loader.
+id: own-photos
+name: Invasive Fish Removal (demo, own photos)
+summary: Demo program for photos taken by the team, with real one-time codes in the frame.
+modeledOn:
+  name: Northern Pikeminnow Sport-Reward Fishery (structure only)
+  url: https://wdfw.wa.gov/fishing/reports/creel/pikeminnow
+  note: Species changed to the fish the team could photograph. Say so in the video.
+currency: USD
+
+species:
+  - key: common_carp # change to what you photographed, e.g. tilapia
+    commonName: Common carp
+    scientificName: Cyprinus carpio
+    minLengthCm: 20
+    traits: Deep body with large scales; two pairs of barbels at the mouth; long dorsal fin.
+
+lookalikes:
+  - key: rohu
+    commonName: Rohu
+    traits: No barbels or one tiny pair; reddish fins; smaller head.
+  - key: tilapia
+    commonName: Tilapia
+    traits: Deep, flattened body; one long dorsal fin, spiny at the front; no barbels.
+
+evidence:
+  codeInFrame: required
+  measuringBoard: required
+  codeTtlMinutes: 15
+  maxLocationAccuracyM: 150
+
+rewards:
+  scheme: flat
+  amountMinor: 500
+
+limits:
+  maxClaimsPerDay: 20
+  maxPayoutMinorPerReceiverPerDay: 30000
+
+season:
+  start: '2026-10-01'
+  end: '2027-01-31'
+  timezone: America/Los_Angeles
+
+eligibility:
+  minAge: null
+
+decisionPolicy:
+  speciesMinConfidence: 0.75
+  lengthMinConfidence: 0.6
+  screenSuspectedMinConfidence: 0.6
+  duplicateExactMaxDistance: 6
+  duplicateNearMaxDistance: 12
+  overrides: {}
+
+audit:
+  sampleRatePercent: 10
+
+funding:
+  seedMinor: 500000
+
+area:
+  # Reuses the Columbia demo polygon; scenarios set a simulated location inside it.
+  name: Lower Columbia and Snake rivers (simplified demo boundary, not official)
+  polygon:
+    type: Polygon
+    coordinates:
+      - [
+          [-124.10, 46.12],
+          [-123.40, 46.10],
+          [-122.85, 46.00],
+          [-122.65, 45.48],
+          [-121.95, 45.55],
+          [-121.20, 45.55],
+          [-120.70, 45.62],
+          [-119.30, 45.86],
+          [-119.05, 46.12],
+          [-118.90, 46.17],
+          [-118.55, 46.48],
+          [-118.05, 46.52],
+          [-117.45, 46.58],
+          [-117.05, 46.36],
+          [-116.95, 46.48],
+          [-117.40, 46.75],
+          [-118.00, 46.68],
+          [-118.50, 46.64],
+          [-118.85, 46.33],
+          [-119.15, 46.35],
+          [-119.40, 46.55],
+          [-119.86, 46.70],
+          [-119.98, 46.66],
+          [-119.50, 46.45],
+          [-119.30, 46.30],
+          [-119.25, 46.08],
+          [-119.70, 45.99],
+          [-120.65, 45.84],
+          [-121.15, 45.73],
+          [-121.95, 45.76],
+          [-122.70, 45.78],
+          [-122.85, 46.22],
+          [-123.40, 46.30],
+          [-124.10, 46.36],
+          [-124.10, 46.12],
+        ]

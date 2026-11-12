@@ -1,0 +1,130 @@
+# Demo program. Loaded at boot and validated by packages/config (zod).
+# Modeled on a real program; amounts and minimum size match it, the season is shifted so judging
+# (Dec 1 to 15, 2026) falls inside it, and the boundary is a simplified demo polygon.
+id: columbia-pikeminnow
+name: Columbia River Pikeminnow Reward (demo)
+summary: Paid removal of northern pikeminnow, a native predator of juvenile salmon and steelhead.
+modeledOn:
+  name: Northern Pikeminnow Sport-Reward Fishery (WDFW and BPA)
+  url: https://wdfw.wa.gov/fishing/reports/creel/pikeminnow
+  note: The real program pays $6 for fish 1 to 25, $8 for 26 to 200 and $10 after 200 each season, plus $500 for a tagged fish; fish must be 9 inches or longer; season May to September.
+currency: USD
+
+species:
+  - key: northern_pikeminnow
+    commonName: Northern pikeminnow
+    scientificName: Ptychocheilus oregonensis
+    minLengthCm: 22.9
+    traits: Long, slender minnow; large mouth whose upper jaw reaches below the eye; no barbels; dark green-brown back and silvery sides; deeply forked tail; soft dorsal fin with no spines.
+
+lookalikes:
+  - key: peamouth
+    commonName: Peamouth
+    traits: Small mouth that does not reach the eye; often two dark stripes along the side.
+  - key: chiselmouth
+    commonName: Chiselmouth
+    traits: Small, square mouth with a hard, chisel-like lower jaw.
+  - key: smallmouth_bass
+    commonName: Smallmouth bass
+    traits: Spiny front dorsal fin; bronze to brown with dark vertical bars; red eye.
+  - key: walleye
+    commonName: Walleye
+    traits: Two dorsal fins, the first spiny; large glassy eyes; sharp teeth; white tip on the lower tail lobe.
+  - key: northern_pike
+    commonName: Northern pike
+    traits: Flat duck-bill snout; dorsal fin set far back near the tail; light bean-shaped spots on a dark green body.
+  - key: common_carp
+    commonName: Common carp
+    traits: Deep body with large scales; two pairs of barbels at the mouth.
+  - key: tilapia
+    commonName: Tilapia
+    traits: Deep, flattened body; one long dorsal fin, spiny at the front; small mouth.
+
+evidence:
+  codeInFrame: required # required | optional
+  measuringBoard: required # required | optional
+  codeTtlMinutes: 15
+  maxLocationAccuracyM: 150
+
+rewards:
+  scheme: cumulative_tiers # flat | cumulative_tiers
+  window: season # counts reset each season, per claimant
+  tiers:
+    - fromCount: 1
+      amountMinor: 600
+    - fromCount: 26
+      amountMinor: 800
+    - fromCount: 201
+      amountMinor: 1000
+  tagBonus: # stretch: needs a tag number from tagList in the photo
+    amountMinor: 50000
+    tagList: []
+
+limits:
+  maxClaimsPerDay: 20
+  maxPayoutMinorPerReceiverPerDay: 30000
+
+season:
+  start: '2026-10-01'
+  end: '2027-01-31'
+  timezone: America/Los_Angeles
+
+eligibility:
+  minAge: null
+
+decisionPolicy:
+  speciesMinConfidence: 0.75
+  lengthMinConfidence: 0.6
+  screenSuspectedMinConfidence: 0.6
+  duplicateExactMaxDistance: 6
+  duplicateNearMaxDistance: 12
+  overrides: {} # e.g. { outside_area: reject }
+
+audit:
+  sampleRatePercent: 10
+
+funding:
+  seedMinor: 500000 # $5,000 of demo ledger money
+
+area:
+  name: Lower Columbia and Snake rivers (simplified demo boundary, not official)
+  polygon:
+    type: Polygon
+    coordinates:
+      - [
+          [-124.10, 46.12],
+          [-123.40, 46.10],
+          [-122.85, 46.00],
+          [-122.65, 45.48],
+          [-121.95, 45.55],
+          [-121.20, 45.55],
+          [-120.70, 45.62],
+          [-119.30, 45.86],
+          [-119.05, 46.12],
+          [-118.90, 46.17],
+          [-118.55, 46.48],
+          [-118.05, 46.52],
+          [-117.45, 46.58],
+          [-117.05, 46.36],
+          [-116.95, 46.48],
+          [-117.40, 46.75],
+          [-118.00, 46.68],
+          [-118.50, 46.64],
+          [-118.85, 46.33],
+          [-119.15, 46.35],
+          [-119.40, 46.55],
+          [-119.86, 46.70],
+          [-119.98, 46.66],
+          [-119.50, 46.45],
+          [-119.30, 46.30],
+          [-119.25, 46.08],
+          [-119.70, 45.99],
+          [-120.65, 45.84],
+          [-121.15, 45.73],
+          [-121.95, 45.76],
+          [-122.70, 45.78],
+          [-122.85, 46.22],
+          [-123.40, 46.30],
+          [-124.10, 46.36],
+          [-124.10, 46.12],
+        ]

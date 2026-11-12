@@ -1,0 +1,94 @@
+# Demo program. Loaded at boot and validated by packages/config (zod).
+# Modeled on the Colville Tribes' Northern Pike Reward as reported by KPQ (2019). Check the current
+# rate before quoting it in the video. The boundary is a simplified demo polygon.
+id: lake-roosevelt-pike
+name: Lake Roosevelt Northern Pike Reward (demo)
+summary: Paid removal of northern pike, which threaten native trout and steelhead in Lake Roosevelt.
+modeledOn:
+  name: Colville Tribes Fish and Wildlife, Northern Pike Reward
+  url: https://kpq.com/anglers-get-cash-incentive-to-assist-combating-northern-pike/
+  note: Reported as $10 per pike head with no size restriction, for anglers 17 or older, turned in at drop-off sites.
+currency: USD
+
+species:
+  - key: northern_pike
+    commonName: Northern pike
+    scientificName: Esox lucius
+    minLengthCm: null
+    traits: Long body; flat duck-bill snout; dorsal fin set far back near the tail; dark green with rows of light bean-shaped spots.
+
+lookalikes:
+  - key: muskellunge
+    commonName: Muskellunge
+    traits: Like a pike but with dark spots or bars on a light body.
+  - key: walleye
+    commonName: Walleye
+    traits: Two dorsal fins, the first spiny; large glassy eyes; white tip on the lower tail lobe.
+  - key: smallmouth_bass
+    commonName: Smallmouth bass
+    traits: Spiny front dorsal fin; bronze with dark vertical bars.
+  - key: northern_pikeminnow
+    commonName: Northern pikeminnow
+    traits: Slender minnow; no spots; soft dorsal fin in the middle of the back.
+  - key: common_carp
+    commonName: Common carp
+    traits: Deep body with large scales; two pairs of barbels at the mouth.
+
+evidence:
+  codeInFrame: required
+  measuringBoard: optional
+  codeTtlMinutes: 15
+  maxLocationAccuracyM: 150
+
+rewards:
+  scheme: flat
+  amountMinor: 1000
+
+limits:
+  maxClaimsPerDay: 20
+  maxPayoutMinorPerReceiverPerDay: 30000
+
+season:
+  start: '2026-01-01'
+  end: '2027-12-31'
+  timezone: America/Los_Angeles
+
+eligibility:
+  minAge: 17
+
+decisionPolicy:
+  speciesMinConfidence: 0.75
+  lengthMinConfidence: 0.6
+  screenSuspectedMinConfidence: 0.6
+  duplicateExactMaxDistance: 6
+  duplicateNearMaxDistance: 12
+  overrides: {}
+
+audit:
+  sampleRatePercent: 10
+
+funding:
+  seedMinor: 500000
+
+area:
+  name: Lake Roosevelt, Grand Coulee Dam to the Canadian border (simplified demo boundary, not official)
+  polygon:
+    type: Polygon
+    coordinates:
+      - [
+          [-118.95, 47.90],
+          [-118.60, 47.88],
+          [-118.05, 47.85],
+          [-117.95, 48.05],
+          [-117.95, 48.40],
+          [-117.85, 48.70],
+          [-117.60, 48.98],
+          [-117.70, 49.00],
+          [-117.90, 48.97],
+          [-118.20, 48.65],
+          [-118.20, 48.30],
+          [-118.25, 48.00],
+          [-118.60, 48.05],
+          [-119.05, 47.98],
+          [-118.95, 47.90],
+        ]

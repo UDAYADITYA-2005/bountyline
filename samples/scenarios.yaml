@@ -1,0 +1,79 @@
+# Judge mode scenarios. Loaded and validated by packages/config.
+# Photos live in samples/photos/ and each one needs a row in samples/CREDITS.md.
+# `code`: set it only for photos that show a handwritten code card; Judge mode then issues exactly
+# that code and the code check runs for real. Without it the code check is skipped and labelled.
+# `submittedAt`: optional simulated server time, used only by the out-of-season scenario.
+version: 1
+
+seedHistory:
+  # Created by `pnpm seed` as a paid claim from 7 days before the seed run, so `reused-photo`
+  # has something to match.
+  - programId: columbia-pikeminnow
+    photo: pikeminnow-01.jpg
+    declared: { speciesKey: northern_pikeminnow, lengthCm: 31 }
+    location: { lat: 46.2205, lng: -119.1725, accuracyM: 10 }
+    daysAgo: 7
+
+scenarios:
+  - id: clean-pikeminnow
+    title: A clean claim
+    story: An angler on the Columbia at Kennewick lands a 34 cm pikeminnow.
+    programId: columbia-pikeminnow
+    photo: pikeminnow-02.jpg
+    declared: { speciesKey: northern_pikeminnow, lengthCm: 34 }
+    location: { lat: 46.2205, lng: -119.1725, accuracyM: 12 }
+    expect: approve
+
+  - id: clean-pikeminnow-2
+    title: A second fish
+    story: The same angler's next fish, below Bonneville Dam. Tiers count per claimant.
+    programId: columbia-pikeminnow
+    photo: pikeminnow-03.jpg
+    declared: { speciesKey: northern_pikeminnow, lengthCm: 29 }
+    location: { lat: 45.6390, lng: -121.9450, accuracyM: 15 }
+    expect: approve
+
+  - id: reused-photo
+    title: A reused photo
+    story: Someone submits last week's paid photo again.
+    programId: columbia-pikeminnow
+    photo: pikeminnow-01.jpg
+    declared: { speciesKey: northern_pikeminnow, lengthCm: 31 }
+    location: { lat: 46.2205, lng: -119.1725, accuracyM: 10 }
+    expect: reject
+
+  - id: out-of-area
+    title: Outside the program area
+    story: A real pikeminnow photo, but the phone says Seattle.
+    programId: columbia-pikeminnow
+    photo: pikeminnow-04.jpg
+    declared: { speciesKey: northern_pikeminnow, lengthCm: 33 }
+    location: { lat: 47.6062, lng: -122.3321, accuracyM: 20 }
+    expect: hold
+
+  - id: wrong-species
+    title: The wrong fish
+    story: A smallmouth bass claimed as a pikeminnow.
+    programId: columbia-pikeminnow
+    photo: lookalike-01.jpg
+    declared: { speciesKey: northern_pikeminnow, lengthCm: 35 }
+    location: { lat: 46.2205, lng: -119.1725, accuracyM: 12 }
+    expect: reject
+
+  - id: undersized
+    title: Too small
+    story: A pikeminnow under the 9-inch (22.9 cm) minimum.
+    programId: columbia-pikeminnow
+    photo: pikeminnow-05.jpg
+    declared: { speciesKey: northern_pikeminnow, lengthCm: 18 }
+    location: { lat: 46.2205, lng: -119.1725, accuracyM: 12 }
+    expect: reject
+
+  - id: pike-clean
+    title: A second program
+    story: A northern pike from Lake Roosevelt near Kettle Falls, paid at a flat rate.
+    programId: lake-roosevelt-pike
+    photo: pike-01.jpg
+    declared: { speciesKey: northern_pike }
+    location: { lat: 48.6000, lng: -118.1000, accuracyM: 10 }
+    expect: approve
