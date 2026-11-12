@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+@import './tokens.css';
+
+/* Tailwind theme mapped onto the design tokens, so utilities never carry raw colours. */
+@theme inline {
+  --color-bg: var(--bl-color-bg);
+  --color-surface: var(--bl-color-surface);
+  --color-surface-2: var(--bl-color-surface-2);
+  --color-ink: var(--bl-color-ink);
+  --color-muted: var(--bl-color-ink-muted);
+  --color-line: var(--bl-color-line);
+  --color-brand: var(--bl-color-brand);
+  --color-brand-ink: var(--bl-color-brand-ink);
+  --color-brand-soft: var(--bl-color-brand-soft);
+  --color-accent: var(--bl-color-accent);
+  --color-accent-ink: var(--bl-color-accent-ink);
+  --color-money: var(--bl-color-money);
+  --color-pass: var(--bl-color-pass);
+  --color-pass-soft: var(--bl-color-pass-soft);
+  --color-fail: var(--bl-color-fail);
+  --color-fail-soft: var(--bl-color-fail-soft);
+  --color-hold: var(--bl-color-hold);
+  --color-hold-soft: var(--bl-color-hold-soft);
+  --color-info: var(--bl-color-info);
+  --color-info-soft: var(--bl-color-info-soft);
+  --color-skip: var(--bl-color-skip);
+  --color-skip-soft: var(--bl-color-skip-soft);
+  --font-sans: var(--bl-font-sans);
+  --font-display: var(--bl-font-display);
+  --font-mono: var(--bl-font-mono);
+  --radius-sm: var(--bl-radius-sm);
+  --radius-md: var(--bl-radius-md);
+  --radius-lg: var(--bl-radius-lg);
+  --shadow-card: var(--bl-shadow-card);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bl-color-bg);
+  color: var(--bl-color-ink);
+  font-family: var(--bl-font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--bl-color-focus);
+  outline-offset: 2px;
+}
+
+.bl-touch {
+  min-height: var(--bl-touch);
+  min-width: var(--bl-touch);
+}
+
+.bl-code {
+  font-family: var(--bl-font-mono);
+  font-size: var(--bl-text-code);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  font-weight: 700;
+}
+
+/* Paper texture for hero blocks: two faint ruled lines, like a ledger page. */
+.bl-ledger {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    color-mix(in srgb, var(--bl-color-line) 55%, transparent) 31px,
+    color-mix(in srgb, var(--bl-color-line) 55%, transparent) 32px
+  );
+}
+
+@keyframes bl-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+.bl-pulse {
+  animation: bl-pulse 1.2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bl-pulse {
+    animation: none;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

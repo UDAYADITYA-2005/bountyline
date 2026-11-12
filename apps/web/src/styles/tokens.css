@@ -1,0 +1,87 @@
+/*
+ * Bountyline design tokens. Placeholder visual system (no design export existed at build
+ * time): "river ledger" - deep river teal, brass for money, paper for surfaces. A later design
+ * pass replaces values here; components use only these variables.
+ */
+:root {
+  color-scheme: light;
+  --bl-color-bg: #f4f1ea;
+  --bl-color-surface: #fffdf8;
+  --bl-color-surface-2: #ebe6da;
+  --bl-color-ink: #12201f;
+  --bl-color-ink-muted: #4a5655;
+  --bl-color-line: #cfc7b6;
+  --bl-color-brand: #0d3b3a;
+  --bl-color-brand-ink: #f7f3e8;
+  --bl-color-brand-soft: #d6e6e2;
+  --bl-color-accent: #b7791f;
+  --bl-color-accent-ink: #1a1203;
+  --bl-color-money: #8a5a00;
+  --bl-color-pass: #1e6b3a;
+  --bl-color-pass-soft: #dcefe1;
+  --bl-color-fail: #a3261b;
+  --bl-color-fail-soft: #f7dfdb;
+  --bl-color-hold: #8a5300;
+  --bl-color-hold-soft: #f8ead0;
+  --bl-color-info: #1f4f86;
+  --bl-color-info-soft: #dce7f5;
+  --bl-color-skip: #5a5a66;
+  --bl-color-skip-soft: #e6e5ea;
+  --bl-color-focus: #f2a900;
+
+  --bl-font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --bl-font-display: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --bl-font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  --bl-text-xs: 0.75rem;
+  --bl-text-sm: 0.875rem;
+  --bl-text-base: 1rem;
+  --bl-text-lg: 1.125rem;
+  --bl-text-xl: 1.375rem;
+  --bl-text-2xl: 1.75rem;
+  --bl-text-3xl: 2.25rem;
+  --bl-text-code: clamp(3.5rem, 18vw, 6rem);
+
+  --bl-space-1: 0.25rem;
+  --bl-space-2: 0.5rem;
+  --bl-space-3: 0.75rem;
+  --bl-space-4: 1rem;
+  --bl-space-6: 1.5rem;
+  --bl-space-8: 2rem;
+
+  --bl-radius-sm: 6px;
+  --bl-radius-md: 10px;
+  --bl-radius-lg: 16px;
+  --bl-shadow-card: 0 1px 0 rgb(18 32 31 / 0.06), 0 4px 18px -8px rgb(18 32 31 / 0.25);
+  --bl-touch: 48px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bl-color-bg: #0b1514;
+    --bl-color-surface: #122120;
+    --bl-color-surface-2: #1a2d2b;
+    --bl-color-ink: #eef3ee;
+    --bl-color-ink-muted: #a9b8b4;
+    --bl-color-line: #2c4441;
+    --bl-color-brand: #7fd1c2;
+    --bl-color-brand-ink: #062120;
+    --bl-color-brand-soft: #173a36;
+    --bl-color-accent: #f2c14e;
+    --bl-color-accent-ink: #1a1203;
+    --bl-color-money: #f2c14e;
+    --bl-color-pass: #72d39a;
+    --bl-color-pass-soft: #143322;
+    --bl-color-fail: #ff8a7a;
+    --bl-color-fail-soft: #3a1714;
+    --bl-color-hold: #ffc46b;
+    --bl-color-hold-soft: #3a2a10;
+    --bl-color-info: #8fb8ee;
+    --bl-color-info-soft: #14253b;
+    --bl-color-skip: #b8b8c6;
+    --bl-color-skip-soft: #26262e;
+    --bl-shadow-card: 0 1px 0 rgb(0 0 0 / 0.4), 0 6px 22px -10px rgb(0 0 0 / 0.7);
+  }
+}
