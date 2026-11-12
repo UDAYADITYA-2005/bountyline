@@ -1,0 +1,17 @@
+{
+  "batch_header": {
+    "sender_batch_header": {
+      "sender_batch_id": "01JC9Z6Q0M3V6T5K2W8N4R7Y1A",
+      "email_subject": "Your Bountyline reward"
+    },
+    "payout_batch_id": "5UXD2E8A7EBQJ",
+    "batch_status": "PENDING"
+  },
+  "links": [
+    {
+      "href": "https://api-m.sandbox.paypal.com/v1/payments/payouts/5UXD2E8A7EBQJ",
+      "rel": "self",
+      "method": "GET"
+    }
+  ]
+}

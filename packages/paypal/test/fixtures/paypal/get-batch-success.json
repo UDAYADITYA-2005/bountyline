@@ -1,0 +1,21 @@
+{
+  "batch_header": {
+    "payout_batch_id": "5UXD2E8A7EBQJ",
+    "batch_status": "SUCCESS",
+    "sender_batch_header": { "sender_batch_id": "01JC9Z6Q0M3V6T5K2W8N4R7Y1A" }
+  },
+  "items": [
+    {
+      "payout_item_id": "8AELMXH8UB2P8",
+      "transaction_id": "0C413693MN970190K",
+      "transaction_status": "SUCCESS",
+      "payout_batch_id": "5UXD2E8A7EBQJ",
+      "payout_item": {
+        "recipient_type": "EMAIL",
+        "amount": { "value": "6.00", "currency": "USD" },
+        "receiver": "buyer@example.com",
+        "sender_item_id": "01JC9Z6Q0M3V6T5K2W8N4R7Y1A"
+      }
+    }
+  ]
+}
