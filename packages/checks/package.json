@@ -1,0 +1,23 @@
+{
+  "name": "@bountyline/checks",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@bountyline/contracts": "workspace:*",
+    "@bountyline/core": "workspace:*",
+    "@bountyline/config": "workspace:*",
+    "@bountyline/db": "workspace:*",
+    "@google/genai": "^1.0.0",
+    "@turf/boolean-point-in-polygon": "^7.2.0",
+    "@turf/helpers": "^7.2.0",
+    "sharp": "^0.35.5",
+    "zod": "^4.1.0"
+  }
+}

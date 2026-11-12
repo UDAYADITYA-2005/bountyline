@@ -1,0 +1,46 @@
+{
+  "name": "@bountyline/api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "dev": "node --env-file-if-exists=../../.env --import tsx --watch src/server.ts",
+    "build": "tsup",
+    "start": "node dist/migrate.js && node dist/seed.js && node dist/server.js"
+  },
+  "dependencies": {
+    "@bountyline/checks": "workspace:*",
+    "@bountyline/config": "workspace:*",
+    "@bountyline/contracts": "workspace:*",
+    "@bountyline/core": "workspace:*",
+    "@bountyline/db": "workspace:*",
+    "@bountyline/paypal": "workspace:*",
+    "@electric-sql/pglite": "^0.3.0",
+    "@fastify/cookie": "^11.0.0",
+    "@fastify/helmet": "^13.0.0",
+    "@fastify/multipart": "^9.0.0",
+    "@fastify/rate-limit": "^10.3.0",
+    "@fastify/static": "^10.1.10",
+    "@fastify/swagger": "^9.5.0",
+    "@fastify/swagger-ui": "^6.1.3",
+    "@google/genai": "^1.0.0",
+    "@node-rs/argon2": "^2.0.2",
+    "@renderinc/sdk": "^1.0.0",
+    "@turf/boolean-point-in-polygon": "^7.2.0",
+    "@turf/helpers": "^7.2.0",
+    "drizzle-orm": "^0.45.4",
+    "fastify": "^5.4.0",
+    "fastify-plugin": "^5.0.0",
+    "fastify-type-provider-zod": "^6.0.0",
+    "pg": "^8.16.0",
+    "pino": "^9.7.0",
+    "sharp": "^0.35.5",
+    "ulid": "^3.0.0",
+    "yaml": "^2.8.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0"
+  }
+}

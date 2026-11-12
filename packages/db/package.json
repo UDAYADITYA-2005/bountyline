@@ -1,0 +1,25 @@
+{
+  "name": "@bountyline/db",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "generate": "drizzle-kit generate"
+  },
+  "dependencies": {
+    "@bountyline/contracts": "workspace:*",
+    "@bountyline/core": "workspace:*",
+    "@electric-sql/pglite": "^0.3.0",
+    "drizzle-orm": "^0.45.4",
+    "pg": "^8.16.0"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.0",
+    "@types/pg": "^8.15.0",
+    "@bountyline/config": "workspace:*"
+  }
+}

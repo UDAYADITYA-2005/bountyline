@@ -1,0 +1,32 @@
+{
+  "name": "@bountyline/workflows",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "tsup",
+    "start": "node dist/main.js"
+  },
+  "dependencies": {
+    "@bountyline/checks": "workspace:*",
+    "@bountyline/config": "workspace:*",
+    "@bountyline/contracts": "workspace:*",
+    "@bountyline/core": "workspace:*",
+    "@bountyline/db": "workspace:*",
+    "@electric-sql/pglite": "^0.3.0",
+    "@google/genai": "^1.0.0",
+    "@renderinc/sdk": "^1.0.0",
+    "@turf/boolean-point-in-polygon": "^7.2.0",
+    "@turf/helpers": "^7.2.0",
+    "drizzle-orm": "^0.45.4",
+    "pg": "^8.16.0",
+    "pino": "^9.7.0",
+    "sharp": "^0.35.5",
+    "yaml": "^2.8.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0"
+  }
+}

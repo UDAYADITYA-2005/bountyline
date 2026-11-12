@@ -1,0 +1,25 @@
+node_modules/
+dist/
+build/
+coverage/
+.turbo/
+.vite/
+*.log
+.DS_Store
+
+# secrets
+.env
+.env.local
+.env.production
+*.pem
+*.key
+
+# local editor and tool state
+.idea/
+.vscode/
+
+# eval output (commit summaries to docs/STATUS.md instead)
+eval/
+
+# local PGlite database
+.data/
